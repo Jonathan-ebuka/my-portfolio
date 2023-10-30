@@ -676,13 +676,18 @@ body.dark-theme {
 /*=============== SERVICES ===============*/
 .services__container {
   grid-template-columns: 250px;
+  display: flex;
   justify-content: center;
+  align-items: center;
   row-gap: 2rem;
   padding-top: 1rem;
 }
 
 .services__card {
   position: relative;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
 }
 
 .services__content {
