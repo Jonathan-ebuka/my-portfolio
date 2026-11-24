@@ -69,6 +69,7 @@ body::after {
   pointer-events: none;
   z-index: 100;
   opacity: 0.07;
+  transform: translateZ(0); /* own layer: not redrawn on every scroll frame */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -93,7 +94,23 @@ button {
   color: inherit;
   background: none;
   border: none;
-  cursor: pointer;
+}
+
+/* retro pixel cursors (option E: cream with an orange shadow).
+   The plain url() line is a fallback for browsers without image-set();
+   the 2x/3x images keep the pixels crisp on retina screens. Phones have
+   no cursor, so this only shows with a mouse or trackpad. */
+html {
+  cursor: url("/cursors/arrow.png") 0 0, auto;
+  cursor: image-set(url("/cursors/arrow.png") 1x, url("/cursors/arrow@2x.png") 2x, url("/cursors/arrow@3x.png") 3x) 0 0, auto;
+}
+
+a,
+button,
+label,
+[role="button"] {
+  cursor: url("/cursors/hand.png") 5 0, pointer;
+  cursor: image-set(url("/cursors/hand.png") 1x, url("/cursors/hand@2x.png") 2x, url("/cursors/hand@3x.png") 3x) 5 0, pointer;
 }
 
 ::selection {
@@ -291,9 +308,9 @@ b {
 }
 
 .header--scrolled {
-  background: color-mix(in srgb, var(--bg) 80%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* near-solid instead of a live backdrop blur, which is costly to redraw
+     on every scroll frame (especially on iPhones) */
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
   padding-block: 0.6rem;
 }
 
@@ -731,6 +748,14 @@ b {
 /* a small gap between items, so wrapped names still read as one item */
 .about__skills li + li {
   margin-top: 0.12em;
+}
+
+/* touch screens: fade only. Blurring large text while scrolling is heavy
+   for phones; desktop keeps the blur */
+@media (hover: none) {
+  .about__skills li {
+    filter: none;
+  }
 }
 
 .about__skills li.is-sharp {

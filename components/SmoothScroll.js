@@ -16,7 +16,12 @@ export default function SmoothScroll() {
       if (lenis || !desktop.matches || reduced.matches) return;
       lenis = new Lenis({
         autoRaf: true,
-        lerp: 0.09, // lower = smoother, longer glide
+        // a timed glide with an "ease-out-expo" curve: starts quickly, settles
+        // gently. Feels steadier than chasing the scroll position, which can
+        // lag behind (especially on Mac trackpads). Raise duration for a
+        // longer glide, lower it for a snappier one.
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         wheelMultiplier: 1,
         // header links and "Back to top" glide to their section; the page's
         // scroll-padding-top keeps them clear of the fixed header
