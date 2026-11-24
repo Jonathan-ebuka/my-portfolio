@@ -21,7 +21,7 @@ export default function Faq() {
   return (
     <section className="faq section" id="faq">
       <h2 className="big-title" data-reveal>
-        Before you ask<span className="accent">.</span>
+        Before you ask...
       </h2>
 
       <ol className="faq__grid">
