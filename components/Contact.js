@@ -68,9 +68,13 @@ export default function Contact() {
           <span>Message</span>
         </label>
 
-        <button type="submit" className="send-btn" disabled={sending}>
-          {sending ? "Sending..." : "Send message"}
-          <i className="ri-arrow-right-up-line"></i>
+        <button type="submit" className="send-btn" disabled={sending} aria-busy={sending}>
+          {sending ? "Sending" : "Send message"}
+          {sending ? (
+            <span className="send-btn__spinner" aria-hidden="true"></span>
+          ) : (
+            <i className="ri-arrow-right-up-line" aria-hidden="true"></i>
+          )}
         </button>
 
         <p className={`form__status${status.error ? " form__status--error" : ""}`} role="status">

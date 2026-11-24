@@ -882,7 +882,9 @@ b {
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
+  min-width: 14.5rem; /* same width while "Sending", so it doesn't jump */
   padding: 1rem 1.75rem;
   background: var(--accent);
   color: var(--on-accent);
@@ -897,11 +899,11 @@ b {
 /* hover tilt only on devices with a real pointer; on phones a tap would
    leave the button stuck tilted */
 @media (hover: hover) {
-  .send-btn:hover {
+  .send-btn:hover:not(:disabled) {
     transform: translateY(-3px) rotate(-2deg);
   }
 
-  .send-btn:hover i {
+  .send-btn:hover:not(:disabled) i {
     transform: rotate(45deg);
   }
 }
@@ -912,8 +914,24 @@ b {
 }
 
 .send-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.85;
   cursor: wait;
+}
+
+/* loader shown in place of the arrow while a message is sending */
+.send-btn__spinner {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .form__status {
