@@ -39,13 +39,13 @@ export default function Contact() {
     <section className="contact section" id="contact">
       <div className="contact__info">
         <h2 className="big-title" data-reveal>
-          Let&apos;s build <br />
-          something<span className="accent">.</span>
+          Let&apos;s work <br />
+          together<span className="accent">.</span>
         </h2>
         <p data-reveal>
-          I will read all emails. Send me any message you want and I&apos;ll get back to you. I
-          need your <b>name</b> and <b>email address</b>, but you won&apos;t receive anything other
-          than your reply.
+          Hiring for a <b>full-time role</b>, or have a <b>freelance project</b> in mind? Send me a
+          message and I&apos;ll get back to you. I only need your name and email address, and
+          you won&apos;t receive anything other than my reply.
         </p>
         <div className="contact__socials" data-reveal>
           {socials.map((s) => (

@@ -1,6 +1,9 @@
 // Site content in one place. Edit text and links here.
 export const email = "okwudiliebuka405@gmail.com";
 
+// Shown in the About section: open to jobs as well as freelance work.
+export const availability = "Open to full-time roles & freelance projects";
+
 // Contact links shown in the menu, contact section and footer.
 // `external` links open in a new tab; the email link opens the mail app.
 export const socials = [

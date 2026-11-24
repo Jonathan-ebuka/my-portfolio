@@ -8,7 +8,7 @@ const mono = Geist_Mono({ subsets: ["latin"], variable: "--nf-mono", display: "s
 
 export const metadata = {
   title: "Jonathan Okwudili — Front-end Developer",
-  description: "Portfolio of Jonathan Okwudili, front-end developer.",
+  description: "Portfolio of Jonathan Okwudili, front-end developer open to full-time roles and freelance projects.",
 };
 
 // Colours the phone's browser bar to match the page.

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { stack } from "./data";
+import { availability, stack } from "./data";
 
 export default function About() {
   const listRef = useRef(null);
@@ -28,8 +28,12 @@ export default function About() {
             layout and typography through to motion and implementation, with a habit of shipping
             real projects and refining details every day.
           </p>
+          <p className="status" data-reveal>
+            <span className="status__dot" aria-hidden="true"></span>
+            {availability}
+          </p>
           <a href="#contact" className="bracket-link bracket-link--accent" data-reveal>
-            Put me to work
+            Let&apos;s work together
           </a>
         </div>
       </div>

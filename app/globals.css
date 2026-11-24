@@ -603,6 +603,43 @@ b {
   color: var(--muted);
 }
 
+/* availability line with a pulsing dot */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.status__dot {
+  position: relative;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.status__dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
 .about__text b {
   color: var(--ink);
 }
