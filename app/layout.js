@@ -1,29 +1,26 @@
-import { Bai_Jamjuree } from "next/font/google";
+import { Anton, Geist, Geist_Mono } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
 import "./globals.css";
 
-const baiJamjuree = Bai_Jamjuree({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-bai-jamjuree",
-  display: "swap",
-});
+const display = Anton({ subsets: ["latin"], weight: "400", variable: "--nf-display", display: "swap" });
+const sans = Geist({ subsets: ["latin"], variable: "--nf-sans", display: "swap" });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--nf-mono", display: "swap" });
 
 export const metadata = {
-  title: "Jonathan's Portfolio",
+  title: "Jonathan Okwudili — Front-end Developer",
   description: "Portfolio of Jonathan Okwudili, front-end developer.",
 };
 
 // Applies the saved theme before the page paints, so dark mode doesn't flash.
-const themeScript = `try{if(localStorage.getItem('selected-theme')==='dark')document.body.classList.add('dark-theme')}catch(e){}`;
+const themeScript = `try{if(localStorage.getItem('selected-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`;
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={baiJamjuree.variable}>
-      <body suppressHydrationWarning>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        {children}
-      </body>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

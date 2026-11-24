@@ -1,54 +1,50 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import aboutImg from "@/assets/img/about.jpg";
-import randomLines from "@/assets/img/random-lines.svg";
+import { skills } from "./data";
 
 export default function About() {
+  const listRef = useRef(null);
+
+  // Each skill comes into focus while it crosses the middle of the screen.
+  useEffect(() => {
+    const items = listRef.current.querySelectorAll("li");
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.target.classList.toggle("is-sharp", e.isIntersecting)),
+      { rootMargin: "-35% 0px -35% 0px" }
+    );
+    items.forEach((li) => io.observe(li));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section className="about section" id="about">
-      <div className="about__container container grid">
-        <h2 className="section__title-1">
-          <span>About me.</span>
-        </h2>
-
-        <div className="about__perfil reveal-right">
-          <div className="about__image">
-            <Image src={aboutImg} alt="Jonathan Okwudili" className="about__img" />
+      <div className="about__intro">
+        <div className="about__sticky">
+          <div className="about__polaroid" data-reveal>
+            <Image src={aboutImg} alt="Jonathan Okwudili" sizes="220px" />
           </div>
-
-          <div className="about__shadow"></div>
-          <div className="geometric-box"></div>
-          <Image src={randomLines} alt="" className="about__line" />
-          <div className="about__box"></div>
-        </div>
-
-        <div className="about__info reveal-left">
-          <p className="about__description">
-            Passionate about creating <b>Web Pages</b>,I have no official working experience, but
-            i&apos;ve built some website with the help of youtube, stack overflow and other online
-            resources to learn more about coding.
+          <h2 className="about__title" data-reveal>I build websites that actually work</h2>
+          <p className="about__text" data-reveal>
+            Passionate about creating <b>web pages</b>. I have no official working experience yet,
+            but I&apos;ve built websites with the help of YouTube, Stack Overflow and other online
+            resources, and I keep learning more about code every day.
           </p>
-
-          <ul className="about__list">
-            <li className="about__item">
-              <b>My Skills Are:</b> HTML, CSS, JavaScript, Tailwind css, Git &amp; GitHub, React JS
-            </li>
-          </ul>
-
-          <div className="about__buttons">
-            <a href="#contact" className="button">
-              <i className="ri-send-plane-line"></i>Contact Me
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/jonathanokwudiliebuka/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button__ghost"
-            >
-              <i className="ri-linkedin-box-line"></i>
-            </a>
-          </div>
+          <a href="#contact" className="bracket-link bracket-link--accent" data-reveal>
+            Put me to work
+          </a>
         </div>
+      </div>
+
+      <div className="about__skills">
+        <p className="eyebrow">My skills are</p>
+        <ul ref={listRef}>
+          {skills.map((s) => (
+            <li key={s}>{s}</li>
+          ))}
+        </ul>
       </div>
     </section>
   );

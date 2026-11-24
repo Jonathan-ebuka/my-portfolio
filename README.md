@@ -18,7 +18,8 @@ npm run dev     # http://localhost:3000
 ## Structure
 
 - `app/` – layout, page, global styles and favicon (`icon.png`)
-- `components/` – one component per section (Header, Home, About, Services, Projects, Contact, Footer, ScrollUp)
+- `components/` – one component per section (Marquee, Header, Hero, About, Work, Faq, Contact, Footer)
+- `components/data.js` – shared content: nav links, socials, skills
 - `assets/img/` – images
 
-To add a project, add an entry to the `projects` array in `components/Projects.js`.
+To add a project, add an entry to the `projects` array in `components/Work.js`.

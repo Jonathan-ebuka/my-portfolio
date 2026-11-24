@@ -1,27 +1,27 @@
+import Marquee from "@/components/Marquee";
 import Header from "@/components/Header";
-import Home from "@/components/Home";
+import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Services from "@/components/Services";
-import Projects from "@/components/Projects";
+import Work from "@/components/Work";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ScrollUp from "@/components/ScrollUp";
-import ScrollRevealInit from "@/components/ScrollRevealInit";
+import RevealObserver from "@/components/RevealObserver";
 
 export default function Page() {
   return (
     <>
+      <Marquee />
       <Header />
-      <main className="main">
-        <Home />
+      <main>
+        <Hero />
         <About />
-        <Services />
-        <Projects />
+        <Work />
+        <Faq />
         <Contact />
       </main>
       <Footer />
-      <ScrollUp />
-      <ScrollRevealInit />
+      <RevealObserver />
     </>
   );
 }
