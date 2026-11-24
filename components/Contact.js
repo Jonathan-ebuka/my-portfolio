@@ -5,9 +5,9 @@ import emailjs from "@emailjs/browser";
 import { email, socials } from "./data";
 
 // EmailJS IDs (these are public keys, safe to ship to the browser).
-const SERVICE_ID = "service_2ycr41b";
-const TEMPLATE_ID = "template_6kw34al";
-const PUBLIC_KEY = "DGh3yjZTG0jvkbH5d";
+const SERVICE_ID = "service_twgyhdj";
+const TEMPLATE_ID = "template_dw06tn9";
+const PUBLIC_KEY = "xakkyIwV9loKVTOje";
 
 const fields = [
   { name: "user_name", label: "Your name", type: "text", autoComplete: "name" },
