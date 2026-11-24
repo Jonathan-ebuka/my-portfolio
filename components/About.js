@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
-import aboutImg from "@/assets/img/about.jpg";
 import { stack } from "./data";
 
 export default function About() {
@@ -23,9 +21,6 @@ export default function About() {
     <section className="about section" id="about">
       <div className="about__intro">
         <div className="about__sticky">
-          <div className="about__polaroid" data-reveal>
-            <Image src={aboutImg} alt="Jonathan Okwudili" sizes="220px" />
-          </div>
           <h2 className="about__title" data-reveal>I build websites that actually work</h2>
           <p className="about__text" data-reveal>
             Passionate about creating <b>web pages</b>. I have no official working experience yet,

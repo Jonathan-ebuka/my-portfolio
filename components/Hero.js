@@ -1,5 +1,5 @@
 import Image from "next/image";
-import homeImg from "@/assets/img/home.jpg";
+import photo from "@/assets/img/jonathan.png";
 import Squiggle from "./Squiggle";
 import { socials } from "./data";
 
@@ -12,9 +12,7 @@ export default function Hero() {
         <span className="hero__photo" data-reveal>
           <Squiggle variant={0} className="hero__squiggle hero__squiggle--l" />
           <Squiggle variant={1} className="hero__squiggle hero__squiggle--r" />
-          <span className="hero__frame">
-            <Image src={homeImg} alt="Jonathan Okwudili" priority sizes="(max-width: 768px) 70vw, 28vw" />
-          </span>
+          <Image src={photo} alt="Illustrated portrait of Jonathan Okwudili" className="hero__img" priority sizes="(max-width: 900px) 60vw, 30vw" />
         </span>
 
         <span className="hero__tag" data-reveal>
