@@ -94,7 +94,23 @@ button {
   color: inherit;
   background: none;
   border: none;
-  cursor: pointer;
+}
+
+/* retro pixel cursors (option E: cream with an orange shadow).
+   The plain url() line is a fallback for browsers without image-set();
+   the 2x/3x images keep the pixels crisp on retina screens. Phones have
+   no cursor, so this only shows with a mouse or trackpad. */
+html {
+  cursor: url("/cursors/arrow.png") 0 0, auto;
+  cursor: image-set(url("/cursors/arrow.png") 1x, url("/cursors/arrow@2x.png") 2x, url("/cursors/arrow@3x.png") 3x) 0 0, auto;
+}
+
+a,
+button,
+label,
+[role="button"] {
+  cursor: url("/cursors/hand.png") 5 0, pointer;
+  cursor: image-set(url("/cursors/hand.png") 1x, url("/cursors/hand@2x.png") 2x, url("/cursors/hand@3x.png") 3x) 5 0, pointer;
 }
 
 ::selection {
