@@ -6,6 +6,7 @@ import Work from "@/components/Work";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function Page() {
   return (
@@ -20,6 +21,7 @@ export default function Page() {
       </main>
       <Footer />
       <RevealObserver />
+      <SmoothScroll />
     </>
   );
 }

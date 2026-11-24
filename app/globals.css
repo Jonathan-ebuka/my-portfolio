@@ -37,6 +37,18 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  /* scrollbar hidden; scrolling still works with wheel, keys and touch */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* when Lenis drives the scroll (desktop), the browser's own smooth
+   scrolling must be off or the two fight */
+html.lenis {
+  scroll-behavior: auto;
 }
 
 body {

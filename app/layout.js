@@ -1,5 +1,6 @@
 import { Anton, Geist, Geist_Mono } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const display = Anton({ subsets: ["latin"], weight: "400", variable: "--nf-display", display: "swap" });
