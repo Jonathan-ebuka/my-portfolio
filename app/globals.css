@@ -592,7 +592,7 @@ b {
   font-family: var(--font-display);
   font-weight: 400;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--ink);
   font-size: clamp(2.25rem, 4.5vw, 4rem);
   line-height: 0.95;
 }
@@ -619,9 +619,8 @@ b {
   margin-top: 3.5rem;
 }
 
-/* the "+" groups (backend, AI) share the accent colour */
-.about__backend li,
-.about__ai li {
+/* backend is shown in the accent colour; front-end and AI stay black */
+.about__backend li {
   color: var(--accent);
 }
 
@@ -649,8 +648,7 @@ b {
   color: var(--accent);
 }
 
-.about__skills .about__backend li:hover,
-.about__skills .about__ai li:hover {
+.about__skills .about__backend li:hover {
   color: var(--ink);
 }
 
