@@ -1123,6 +1123,13 @@ html.dark .card:nth-child(2) {
     justify-self: end;
   }
 
+  /* mobile: every section heading is centred */
+  .big-title,
+  .about__title {
+    text-align: center;
+    align-self: stretch;
+  }
+
   .about {
     grid-template-columns: 1fr;
   }
