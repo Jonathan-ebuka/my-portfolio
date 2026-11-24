@@ -18,7 +18,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Track which section is in view, for the dot in the menu.
+  // Track which section is in view, for the dot in the menu and link bar.
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
@@ -39,6 +39,14 @@ export default function Header() {
     }
     wasOpen.current = open;
   }, [open]);
+
+  // If the window is widened to desktop while the circle menu is open, close it.
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 901px)");
+    const onChange = (e) => e.matches && setOpen(false);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   // Lock page scroll and allow Escape while the menu is open.
   useEffect(() => {
@@ -68,6 +76,20 @@ export default function Header() {
         <a href="#home" className="logo" aria-label="Jonathan, back to top" onClick={() => setOpen(false)}>
           Jonathan<span>.</span>
         </a>
+
+        {/* desktop: links in the bar (the circle menu is for small screens) */}
+        <nav className="header__nav" aria-label="Main">
+          <ul>
+            {nav.map(({ id, label }) => (
+              <li key={id}>
+                <a href={`#${id}`} aria-current={active === id ? "true" : undefined}>
+                  <span className="header__dot" aria-hidden="true"></span>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="header__actions">
           <button

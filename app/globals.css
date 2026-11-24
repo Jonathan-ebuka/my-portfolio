@@ -224,6 +224,60 @@ b {
   transition: background-color 0.3s, backdrop-filter 0.3s, padding 0.3s, color 0.3s;
 }
 
+/* desktop link bar */
+.header__nav ul {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.header__nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.25s;
+}
+
+.header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--ease);
+}
+
+.header__nav a:hover {
+  color: var(--accent-ink);
+}
+
+.header__nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* the dot marks the section in view, like in the mobile menu */
+.header__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: scale(0);
+  transition: transform 0.35s var(--ease);
+}
+
+.header__nav [aria-current] .header__dot {
+  transform: scale(1);
+}
+
 .header--scrolled {
   background: color-mix(in srgb, var(--bg) 80%, transparent);
   backdrop-filter: blur(10px);
@@ -588,15 +642,6 @@ b {
   gap: 1.5rem;
 }
 
-.about__title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--ink);
-  font-size: clamp(2.25rem, 4.5vw, 4rem);
-  line-height: 0.95;
-}
-
 .about__text {
   max-width: 34rem;
   font-size: 1.1rem;
@@ -795,11 +840,14 @@ b {
 }
 
 /*=============== CONTACT ===============*/
+/* two columns (heading + text | email), placed as one group in the middle
+   of the page so the space on the left equals the space on the right */
 .contact {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: clamp(2.5rem, 6vw, 6rem);
+  grid-template-columns: auto auto;
+  justify-content: center;
   align-items: center;
+  gap: clamp(3rem, 8vw, 8rem);
 }
 
 .contact__info {
@@ -823,7 +871,6 @@ b {
   flex-direction: column;
   align-items: flex-start;
   gap: 1.25rem;
-  padding-top: 0.75rem;
 }
 
 .pill-btn {
@@ -981,7 +1028,18 @@ b {
 }
 
 /*=============== RESPONSIVE ===============*/
+@media (min-width: 901px) {
+  .header__actions,
+  .menu {
+    display: none;
+  }
+}
+
 @media (max-width: 900px) {
+  .header__nav {
+    display: none;
+  }
+
   /* mobile: everything stacked, nothing overlapping */
   .hero {
     padding-top: calc(var(--marquee-h) + 5rem);
@@ -1034,8 +1092,7 @@ b {
   }
 
   /* mobile: every section heading is centred */
-  .big-title,
-  .about__title {
+  .big-title {
     text-align: center;
     align-self: stretch;
   }
@@ -1069,20 +1126,23 @@ b {
     --rot: calc((var(--n) - 1) * 2deg);
   }
 
+  .pill-btn {
+    min-width: 0;
+    padding: 0.9rem 1.2rem;
+    gap: 0.5rem;
+  }
+
+
   .contact {
     grid-template-columns: 1fr;
+    justify-content: stretch;
+    gap: 2.5rem;
   }
 
   /* mobile: the email block is centred, like the headings */
   .contact__mail {
     align-items: center;
     text-align: center;
-  }
-
-  .pill-btn {
-    min-width: 0;
-    padding: 0.9rem 1.2rem;
-    gap: 0.5rem;
   }
 
   .contact__other {

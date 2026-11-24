@@ -21,9 +21,9 @@ export default function About() {
     <section className="about section" id="about">
       <div className="about__intro">
         <div className="about__sticky">
-          <h2 className="about__title" data-reveal>I build websites that actually work</h2>
+          <h2 className="sr-only">About</h2>
           <p className="about__text" data-reveal>
-            Front-end builder and computer science student focused on turning visual ideas and UI
+            Software developer and computer science student focused on turning visual ideas and UI
             concepts into responsive, interactive web pages. Experienced in taking designs from
             layout and typography through to motion and implementation, with a habit of shipping
             real projects and refining details every day.
