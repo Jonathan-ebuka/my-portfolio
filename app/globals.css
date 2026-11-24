@@ -1,5 +1,4 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -19,7 +18,7 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Bai Jamjuree", sans-serif;
+  --body-font: var(--font-bai-jamjuree), sans-serif;
   --biggest-font-size: 2.5rem;
   --h1-font-size: 1.75rem;
   --h2-font-size: 1.25rem;
@@ -121,7 +120,7 @@ body.dark-theme {
 	Color changes in some parts of 
 	the website, in dark theme
 ==========*/
-.dark-theme .shadow__header{
+.dark-theme .shadow-header{
   box-shadow: 0 1px 12px hsla(0, 0%, 0%, .6);
 }
 
@@ -149,7 +148,7 @@ body.dark-theme {
 }
 
 .dark-theme :is(.contact__mail, .contact__input, .contact__label){
-  background-color(--container-color);
+  background-color: var(--container-color);
 }
 
 .dark-theme .footer {
