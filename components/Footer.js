@@ -27,7 +27,6 @@ export default function Footer() {
       </div>
 
       <div className="footer__meta">
-        <span>Handmade with ✦ and Next.js</span>
         <span>© {new Date().getFullYear()} Jonathan Okwudili. All rights reserved.</span>
       </div>
 

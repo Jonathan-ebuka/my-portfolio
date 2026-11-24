@@ -103,7 +103,6 @@ export default function Header() {
         </ul>
 
         <div className="menu__footer">
-          <span>Handmade with ✦ and Next.js</span>
           <div className="menu__socials">
             {socials.map((s) => (
               <a key={s.label} href={s.href} target={s.external ? "_blank" : undefined} rel={s.external ? "noopener noreferrer" : undefined} tabIndex={open ? 0 : -1}>
