@@ -196,7 +196,7 @@ b {
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee 50s linear infinite;
+  animation: marquee 75s linear infinite;
 }
 
 .marquee__row {
@@ -662,6 +662,20 @@ b {
 
 .about__backend li {
   color: var(--accent);
+}
+
+/* AI group: outlined lettering, a size down since the names are longer */
+.about__skills .about__ai li {
+  font-size: clamp(2.25rem, 4.6vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.15em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+}
+
+.about__skills .about__ai li:hover {
+  color: var(--accent);
+  -webkit-text-stroke-color: var(--accent);
 }
 
 .about__skills li {

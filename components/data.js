@@ -15,4 +15,5 @@ export const nav = [
 export const stack = {
   frontEnd: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "TypeScript", "React", "Next.js", "Git", "GitHub", "GitLab"],
   backend: ["Node.js", "MongoDB", "Supabase", "Firebase"],
+  ai: ["AI-assisted coding", "AI API integration", "AI agent development", "AI automation & workflow engineering"],
 };

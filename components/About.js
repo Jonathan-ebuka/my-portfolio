@@ -48,6 +48,13 @@ export default function About() {
               <li key={s}>{s}</li>
             ))}
           </ul>
+
+          <p className="eyebrow about__eyebrow-gap">+ AI, very proficient</p>
+          <ul className="about__ai">
+            {stack.ai.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ const faqs = [
   },
   {
     q: "What do you build with?",
-    a: "On the front end: HTML, CSS & Tailwind CSS, JavaScript & TypeScript, React & Next.js, with Git, GitHub and GitLab. Plus a sprinkle of backend: Node.js, MongoDB, Supabase and Firebase.",
+    a: "On the front end: HTML, CSS & Tailwind CSS, JavaScript & TypeScript, React & Next.js, with Git, GitHub and GitLab. Plus a sprinkle of backend: Node.js, MongoDB, Supabase and Firebase. And I'm very proficient with AI: AI-assisted coding, AI API integration, AI agent development, and AI automation & workflow engineering.",
   },
   {
     q: "Where did you learn?",
