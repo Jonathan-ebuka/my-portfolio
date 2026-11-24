@@ -23,9 +23,10 @@ export default function About() {
         <div className="about__sticky">
           <h2 className="about__title" data-reveal>I build websites that actually work</h2>
           <p className="about__text" data-reveal>
-            Passionate about creating <b>web pages</b>. I have no official working experience yet,
-            but I&apos;ve built websites with the help of YouTube, Stack Overflow and other online
-            resources, and I keep learning more about code every day.
+            Front-end builder and computer science student focused on turning visual ideas and UI
+            concepts into responsive, interactive web pages. Experienced in taking designs from
+            layout and typography through to motion and implementation, with a habit of shipping
+            real projects and refining details every day.
           </p>
           <a href="#contact" className="bracket-link bracket-link--accent" data-reveal>
             Put me to work
