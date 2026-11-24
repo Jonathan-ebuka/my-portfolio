@@ -862,55 +862,24 @@ b {
 
 }
 
-/* doodle cat with an arrow pointing down at the Email me button */
-.pointing-cat {
-  width: 160px;
+/* pixel angel beside the Email me button, aiming at it */
+.contact__cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cherub {
+  width: clamp(104px, 10vw, 140px);
   height: auto;
-  margin-bottom: -0.5rem;
-  overflow: visible;
+  image-rendering: pixelated; /* keep the pixel art crisp */
+  flex-shrink: 0;
+  animation: cherub-float 2.6s ease-in-out infinite;
 }
 
-.pointing-cat__cat {
-  transform-origin: 46px 84px;
-  animation: cat-tilt 3.2s ease-in-out infinite;
-}
-
-.pointing-cat__eye {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: cat-blink 4s infinite;
-}
-
-.pointing-cat__arrow {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-}
-
-.pointing-cat__head {
-  opacity: 0;
-}
-
-/* the arrow draws itself once the section scrolls into view */
-.contact__mail.is-visible .pointing-cat__arrow {
-  animation: draw 1.2s var(--ease) 0.4s forwards;
-}
-
-.contact__mail.is-visible .pointing-cat__head {
-  animation: appear 0.3s 1.4s forwards;
-}
-
-@keyframes cat-tilt {
-  0%, 100% { transform: rotate(-4deg); }
-  50% { transform: rotate(4deg); }
-}
-
-@keyframes cat-blink {
-  0%, 92%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); }
-}
-
-@keyframes appear {
-  to { opacity: 1; }
+@keyframes cherub-float {
+  0%, 100% { transform: translateY(2px) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(1deg); }
 }
 
 .contact__other {

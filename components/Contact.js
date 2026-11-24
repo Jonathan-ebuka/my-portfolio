@@ -1,5 +1,6 @@
 import { email, socials } from "./data";
-import PointingCat from "./PointingCat";
+import Image from "next/image";
+import cherub from "@/assets/img/cherub.png";
 
 // Profile links (GitHub, Instagram); the email has its own block above them.
 const profiles = socials.filter((s) => s.external);
@@ -19,11 +20,14 @@ export default function Contact() {
       </div>
 
       <div className="contact__mail" data-reveal>
-        <PointingCat />
-        <a href={`mailto:${email}`} className="pill-btn">
-          Email me
-          <i className="ri-arrow-right-up-line" aria-hidden="true"></i>
-        </a>
+        {/* pixel angel aiming at the Email me button */}
+        <div className="contact__cta">
+          <Image src={cherub} alt="" className="cherub" sizes="140px" />
+          <a href={`mailto:${email}`} className="pill-btn">
+            Email me
+            <i className="ri-arrow-right-up-line" aria-hidden="true"></i>
+          </a>
+        </div>
 
         <p className="contact__other">
           Or find me on
