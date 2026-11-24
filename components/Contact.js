@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { socials } from "./data";
+import { email, socials } from "./data";
 
 // EmailJS IDs (these are public keys, safe to ship to the browser).
 const SERVICE_ID = "service_2ycr41b";
@@ -29,7 +29,7 @@ export default function Contact() {
       formRef.current.reset();
       setTimeout(() => setStatus({ text: "", error: false }), 6000);
     } catch {
-      setStatus({ text: "Message not sent (service error). Try LinkedIn instead.", error: true });
+      setStatus({ text: `Message not sent (service error). Email me at ${email} instead.`, error: true });
     } finally {
       setSending(false);
     }
@@ -49,7 +49,7 @@ export default function Contact() {
         </p>
         <div className="contact__socials" data-reveal>
           {socials.map((s) => (
-            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="bracket-link">
+            <a key={s.label} href={s.href} target={s.external ? "_blank" : undefined} rel={s.external ? "noopener noreferrer" : undefined} className="bracket-link">
               {s.label}
             </a>
           ))}
