@@ -10,6 +10,9 @@
   --on-accent: #fff8f2;
   --card: #fc4a0f;
   --giant: rgba(21, 21, 19, 0.06);
+  --menu-bg: #151513;
+  --menu-fg: #f3f2e9;
+  --menu-dim: #55554f;
 
   --font-display: var(--nf-display), Impact, "Arial Narrow", sans-serif;
   --font-body: var(--nf-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -28,6 +31,9 @@ html.dark {
   --line: rgba(243, 242, 233, 0.14);
   --accent-ink: #ff6a36;
   --giant: rgba(243, 242, 233, 0.05);
+  --menu-bg: #f3f2e9;
+  --menu-fg: #151513;
+  --menu-dim: #b4b3a8;
 }
 
 /*=============== BASE ===============*/
@@ -226,7 +232,7 @@ b {
   justify-content: space-between;
   align-items: center;
   padding: 1rem var(--gutter);
-  transition: background-color 0.3s, backdrop-filter 0.3s, padding 0.3s;
+  transition: background-color 0.3s, backdrop-filter 0.3s, padding 0.3s, color 0.3s;
 }
 
 .header--scrolled {
@@ -270,24 +276,36 @@ b {
   background: var(--bg-soft);
 }
 
+/* Menu button: a dark circle the menu grows out of */
 .burger {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--menu-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  padding: 0 0.4rem;
+  transition: transform 0.4s var(--ease);
+}
+
+.burger:hover {
+  transform: scale(1.08) rotate(-6deg);
 }
 
 .burger span {
+  width: 1.25rem;
   height: 2px;
   background: var(--accent);
-  transition: transform 0.35s var(--ease), opacity 0.2s;
+  border-radius: 2px;
+  transition: transform 0.5s var(--ease), opacity 0.25s;
 }
 
-.burger--open span {
-  background: #f3f2e9;
+.burger span:nth-child(2) {
+  width: 0.8rem;
+  align-self: center;
+  transform: translateX(0.22rem);
 }
 
 .burger--open span:nth-child(1) {
@@ -296,82 +314,129 @@ b {
 
 .burger--open span:nth-child(2) {
   opacity: 0;
+  transform: translateX(1rem);
 }
 
 .burger--open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* while the menu is open (or still closing), the header sits on the menu
+   colour; the text colour changes once the circle has reached it */
 .header--menu {
-  color: #f3f2e9;
+  color: var(--menu-fg);
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  transition: background-color 0.3s, padding 0.3s, color 0.3s 0.3s;
 }
 
 .header--menu .icon-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: color-mix(in srgb, var(--menu-fg) 12%, transparent);
 }
 
 /*=============== MENU OVERLAY ===============*/
 .menu {
+  --mx: calc(100% - 3rem);
+  --my: 4.5rem;
+  --mr: 150vmax;
   position: fixed;
   inset: 0;
   z-index: 45;
-  background: #151513;
-  color: #f3f2e9;
+  background: var(--menu-bg);
+  color: var(--menu-fg);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 6rem var(--gutter) 2rem;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 0.7s var(--ease);
+  padding: calc(var(--marquee-h) + 6rem) var(--gutter) 2rem;
+  overflow: hidden;
+  clip-path: circle(0px at var(--mx) var(--my));
+  visibility: hidden;
+  /* closing: wait for the links to leave, then shrink back into the button */
+  transition: clip-path 0.75s cubic-bezier(0.76, 0, 0.24, 1) 0.15s, visibility 0s 0.9s;
 }
 
 .menu--open {
-  clip-path: inset(0 0 0 0);
+  clip-path: circle(var(--mr) at var(--mx) var(--my));
+  visibility: visible;
+  transition: clip-path 0.85s cubic-bezier(0.76, 0, 0.24, 1), visibility 0s;
 }
 
 .menu__list a {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.25em;
+  width: fit-content;
   font-family: var(--font-display);
   text-transform: uppercase;
-  font-size: clamp(3rem, 11vh, 7rem);
-  line-height: 1.05;
-  transform: translateY(100%);
+  font-size: clamp(3.25rem, 11vh, 7.5rem);
+  line-height: 1.02;
+  /* starts pushed right and faded, each link a little further than the last */
+  color: var(--menu-dim);
   opacity: 0;
-  transition: transform 0.6s var(--ease), opacity 0.6s, color 0.25s;
+  transform: translateX(calc(10vw + var(--i) * 6vw));
+  transition: transform 0.35s ease-in, opacity 0.25s, color 0.3s;
 }
 
 .menu--open .menu__list a {
-  transform: none;
+  color: var(--menu-fg);
   opacity: 1;
-  transition-delay: calc(0.15s + var(--i) * 0.06s);
+  transform: none;
+  transition: transform 1s var(--ease), opacity 0.6s, color 1.2s var(--ease);
+  transition-delay: calc(0.3s + var(--i) * 0.07s);
 }
 
-.menu__list a:hover {
+.menu--open .menu__list a:hover {
   color: var(--accent);
+  transition-delay: 0s;
+  transition-duration: 0.25s;
 }
 
-.menu__num {
-  font-family: var(--font-code);
-  font-size: 0.85rem;
-  color: var(--accent);
-  margin-top: 1.2em;
+.menu__dot {
+  width: 0.14em;
+  height: 0.14em;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 0.12em;
+  transform: scale(0);
+  transition: transform 0.4s var(--ease);
+}
+
+.menu--open [aria-current] .menu__dot {
+  transform: scale(1);
+  transition-delay: calc(0.75s + var(--i) * 0.07s);
 }
 
 .menu__footer {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 2rem;
   display: flex;
-  gap: 1.5rem;
-  margin-top: 3rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
   font-family: var(--font-code);
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.2s, transform 0.2s;
 }
 
-.menu__footer a:hover {
+.menu--open .menu__footer {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s 0.8s, transform 0.8s var(--ease) 0.8s;
+}
+
+.menu__socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu__socials a:hover {
   color: var(--accent);
 }
 
@@ -1115,6 +1180,7 @@ html.dark .card:nth-child(2) {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
 
