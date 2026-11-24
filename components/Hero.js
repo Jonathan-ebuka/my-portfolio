@@ -1,7 +1,17 @@
 import Image from "next/image";
 import photo from "@/assets/img/jonathan.png";
 import Squiggle from "./Squiggle";
-import { socials } from "./data";
+import Typewriter from "./Typewriter";
+
+// Scribbles around the portrait: [side, offset from that side, top, height]
+const scribbles = [
+  ["left", "-14%", "28%", "62%"],
+  ["left", "-4%", "36%", "60%"],
+  ["left", "6%", "48%", "44%"],
+  ["right", "-16%", "30%", "58%"],
+  ["right", "-6%", "22%", "72%"],
+  ["right", "5%", "44%", "40%"],
+];
 
 export default function Hero() {
   return (
@@ -9,30 +19,38 @@ export default function Hero() {
       <h1 className="hero__grid">
         <span className="hero__word hero__hello" data-reveal>Hello</span>
 
+        <Typewriter text="{{ world }}" delay={700} speed={110} className="hero__tag" />
+
         <span className="hero__photo" data-reveal>
-          <Squiggle variant={0} className="hero__squiggle hero__squiggle--l" />
-          <Squiggle variant={1} className="hero__squiggle hero__squiggle--r" />
-          <Image src={photo} alt="Illustrated portrait of Jonathan Okwudili" className="hero__img" priority sizes="(max-width: 900px) 60vw, 30vw" />
+          {scribbles.map(([side, offset, top, height], i) => (
+            <Squiggle
+              key={i}
+              variant={i}
+              className={`hero__squiggle${i % 3 === 2 ? " hero__squiggle--front" : ""}`}
+              style={{ [side]: offset, top, height, animationDelay: `${0.5 + i * 0.12}s` }}
+            />
+          ))}
+          <Image
+            src={photo}
+            alt="Illustrated portrait of Jonathan Okwudili"
+            className="hero__img"
+            priority
+            sizes="(max-width: 900px) 60vw, 30vw"
+          />
         </span>
 
-        <span className="hero__tag" data-reveal>
-          {"{ front-end developer }"}
-        </span>
+        <span className="hero__word hero__meet" data-reveal>Meet</span>
 
-        <span className="hero__word hero__im" data-reveal>I&apos;m</span>
+        <Typewriter
+          text="A front-end developer with a sprinkle of backend."
+          delay={2200}
+          speed={45}
+          className="hero__line"
+          caret="typewriter__caret--accent"
+        />
+
         <span className="hero__word hero__name" data-reveal>Jonathan</span>
       </h1>
-
-      <div className="hero__bottom">
-        <a href="#about" className="bracket-link">Scroll down</a>
-        <div className="hero__socials">
-          {socials.map((s) => (
-            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
-              <i className={s.icon}></i>
-            </a>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
