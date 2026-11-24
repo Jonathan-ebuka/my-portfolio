@@ -22,23 +22,7 @@
   --marquee-h: 2.5rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  color-scheme: light dark;
-}
-
-/* dark mode follows the device setting automatically */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121210;
-    --bg-soft: #1c1c19;
-    --ink: #f3f2e9;
-    --muted: #a5a59b;
-    --line: rgba(243, 242, 233, 0.14);
-    --accent-ink: #ff6a36;
-    --giant: rgba(243, 242, 233, 0.05);
-    --menu-bg: #f3f2e9;
-    --menu-fg: #151513;
-    --menu-dim: #b4b3a8;
-  }
+  color-scheme: light; /* light mode only */
 }
 
 /*=============== BASE ===============*/
@@ -702,12 +686,6 @@ b {
   background: #151513;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card:nth-child(2) {
-    background: #2a2a26;
-  }
-}
-
 .card:nth-child(3) {
   top: 20px;
 }
@@ -779,46 +757,6 @@ b {
 .card__links a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-/*=============== FAQ ===============*/
-.faq .big-title {
-  text-align: center;
-  color: var(--accent);
-  margin-bottom: clamp(3rem, 7vw, 5.5rem);
-}
-
-/* number, question and answer stacked; no borders or dividers */
-.faq__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(3rem, 6vw, 5rem) clamp(3rem, 8vw, 8rem);
-  max-width: 1120px;
-  margin-inline: auto;
-}
-
-.faq__num {
-  display: block;
-  font-family: var(--font-code);
-  color: var(--accent-ink);
-  font-size: 1rem;
-  margin-bottom: 0.9rem;
-}
-
-.faq__grid h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: clamp(1.75rem, 2.6vw, 2.4rem);
-  line-height: 1.12;
-  margin-bottom: 0.6rem;
-}
-
-.faq__grid p {
-  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-  line-height: 1.55;
-  color: var(--ink);
-  max-width: 34rem;
 }
 
 /*=============== CONTACT ===============*/
@@ -1130,10 +1068,6 @@ b {
     top: auto !important;
     align-self: center;
     --rot: calc((var(--n) - 1) * 2deg);
-  }
-
-  .faq__grid {
-    grid-template-columns: 1fr;
   }
 
   .contact {

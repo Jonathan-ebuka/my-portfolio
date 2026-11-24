@@ -11,12 +11,9 @@ export const metadata = {
   description: "Portfolio of Jonathan Okwudili, front-end developer.",
 };
 
-// Colours the phone's browser bar to match the page in light and dark mode.
+// Colours the phone's browser bar to match the page.
 export const viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3f2e9" },
-    { media: "(prefers-color-scheme: dark)", color: "#121210" },
-  ],
+  themeColor: "#f3f2e9",
 };
 
 export default function RootLayout({ children }) {
