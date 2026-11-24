@@ -588,15 +588,6 @@ b {
   gap: 1.5rem;
 }
 
-.about__title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--ink);
-  font-size: clamp(2.25rem, 4.5vw, 4rem);
-  line-height: 0.95;
-}
-
 .about__text {
   max-width: 34rem;
   font-size: 1.1rem;
@@ -1034,8 +1025,7 @@ b {
   }
 
   /* mobile: every section heading is centred */
-  .big-title,
-  .about__title {
+  .big-title {
     text-align: center;
     align-self: stretch;
   }
