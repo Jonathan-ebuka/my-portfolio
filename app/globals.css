@@ -944,17 +944,21 @@ html.dark .card:nth-child(2) {
   transition: transform 0.3s var(--ease), background-color 0.3s;
 }
 
-.send-btn:hover {
-  transform: translateY(-3px) rotate(-2deg);
+/* hover tilt only on devices with a real pointer; on phones a tap would
+   leave the button stuck tilted */
+@media (hover: hover) {
+  .send-btn:hover {
+    transform: translateY(-3px) rotate(-2deg);
+  }
+
+  .send-btn:hover i {
+    transform: rotate(45deg);
+  }
 }
 
 .send-btn i {
   font-size: 1.1rem;
   transition: transform 0.3s var(--ease);
-}
-
-.send-btn:hover i {
-  transform: rotate(45deg);
 }
 
 .send-btn:disabled {
@@ -1165,6 +1169,15 @@ html.dark .card:nth-child(2) {
 
   .contact {
     grid-template-columns: 1fr;
+  }
+
+  /* mobile: send button centred, with its status message under it */
+  .send-btn {
+    align-self: center;
+  }
+
+  .form__status {
+    text-align: center;
   }
 
   .footer__right {
