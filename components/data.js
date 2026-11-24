@@ -8,6 +8,7 @@ export const availability = "Open to full-time roles & freelance projects";
 // `external` links open in a new tab; the email link opens the mail app.
 export const socials = [
   { label: "GitHub", href: "https://github.com/Jonathan-ebuka", external: true },
+  { label: "Instagram", href: "https://www.instagram.com/iamokwudilijonathan", external: true },
   { label: "Email", href: `mailto:${email}`, external: false },
 ];
 
