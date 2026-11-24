@@ -51,11 +51,6 @@ export default function Contact() {
       </div>
 
       <div className="contact__mail" data-reveal>
-        <p className="eyebrow">Email me at</p>
-        <a href={`mailto:${email}`} className="contact__address">
-          {email}
-        </a>
-
         <div className="contact__actions">
           <a href={`mailto:${email}`} className="pill-btn">
             Email me
