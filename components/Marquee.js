@@ -1,4 +1,6 @@
-const items = ["Front-end developer", "HTML", "CSS", "JavaScript", "React", "Tailwind", "Git & GitHub", "Let's build something"];
+import { stack } from "./data";
+
+const items = ["Front-end developer", ...stack.frontEnd.filter((s) => !s.startsWith("Git")), ...stack.backend, "Let's build something"];
 
 export default function Marquee() {
   // The list is rendered twice so the loop is seamless.

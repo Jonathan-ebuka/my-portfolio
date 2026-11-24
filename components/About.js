@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import aboutImg from "@/assets/img/about.jpg";
-import { skills } from "./data";
+import { stack } from "./data";
 
 export default function About() {
   const listRef = useRef(null);
@@ -39,12 +39,21 @@ export default function About() {
       </div>
 
       <div className="about__skills">
-        <p className="eyebrow">My skills are</p>
-        <ul ref={listRef}>
-          {skills.map((s) => (
-            <li key={s}>{s}</li>
-          ))}
-        </ul>
+        <div ref={listRef}>
+          <p className="eyebrow">Front-end</p>
+          <ul>
+            {stack.frontEnd.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+
+          <p className="eyebrow about__eyebrow-gap">+ A sprinkle of backend</p>
+          <ul className="about__backend">
+            {stack.backend.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

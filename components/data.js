@@ -12,4 +12,7 @@ export const nav = [
   { id: "contact", label: "Contact" },
 ];
 
-export const skills = ["HTML", "CSS", "JavaScript", "React JS", "Tailwind CSS", "Git & GitHub"];
+export const stack = {
+  frontEnd: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "TypeScript", "React", "Next.js", "Git", "GitHub", "GitLab"],
+  backend: ["Node.js", "MongoDB", "Supabase", "Firebase"],
+};

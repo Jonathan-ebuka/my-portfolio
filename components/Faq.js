@@ -5,7 +5,7 @@ const faqs = [
   },
   {
     q: "What do you build with?",
-    a: "HTML, CSS, JavaScript, React JS and Tailwind CSS, with Git & GitHub to keep everything tracked.",
+    a: "On the front end: HTML, CSS & Tailwind CSS, JavaScript & TypeScript, React & Next.js, with Git, GitHub and GitLab. Plus a sprinkle of backend: Node.js, MongoDB, Supabase and Firebase.",
   },
   {
     q: "Where did you learn?",

@@ -190,7 +190,7 @@ b {
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 50s linear infinite;
 }
 
 .marquee__row {
@@ -530,6 +530,10 @@ b {
   align-items: start;
 }
 
+.about__intro {
+  align-self: stretch;
+}
+
 .about__sticky {
   position: sticky;
   top: 9rem;
@@ -582,6 +586,14 @@ b {
   margin-bottom: 1rem;
 }
 
+.about__skills .about__eyebrow-gap {
+  margin-top: 3.5rem;
+}
+
+.about__backend li {
+  color: var(--accent);
+}
+
 .about__skills li {
   font-family: var(--font-display);
   text-transform: uppercase;
@@ -599,6 +611,10 @@ b {
 
 .about__skills li:hover {
   color: var(--accent);
+}
+
+.about__skills .about__backend li:hover {
+  color: var(--ink);
 }
 
 /*=============== WORK ===============*/
