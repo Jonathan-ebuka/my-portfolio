@@ -21,19 +21,24 @@
   --gutter: clamp(1rem, 4vw, 3rem);
   --marquee-h: 2.5rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light dark;
 }
 
-html.dark {
-  --bg: #121210;
-  --bg-soft: #1c1c19;
-  --ink: #f3f2e9;
-  --muted: #a5a59b;
-  --line: rgba(243, 242, 233, 0.14);
-  --accent-ink: #ff6a36;
-  --giant: rgba(243, 242, 233, 0.05);
-  --menu-bg: #f3f2e9;
-  --menu-fg: #151513;
-  --menu-dim: #b4b3a8;
+/* dark mode follows the device setting automatically */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121210;
+    --bg-soft: #1c1c19;
+    --ink: #f3f2e9;
+    --muted: #a5a59b;
+    --line: rgba(243, 242, 233, 0.14);
+    --accent-ink: #ff6a36;
+    --giant: rgba(243, 242, 233, 0.05);
+    --menu-bg: #f3f2e9;
+    --menu-fg: #151513;
+    --menu-dim: #b4b3a8;
+  }
 }
 
 /*=============== BASE ===============*/
@@ -262,20 +267,6 @@ b {
   z-index: 70;
 }
 
-.icon-btn {
-  width: 2.5rem;
-  height: 2.5rem;
-  display: grid;
-  place-items: center;
-  font-size: 1.25rem;
-  border-radius: 50%;
-  transition: background-color 0.25s;
-}
-
-.icon-btn:hover {
-  background: var(--bg-soft);
-}
-
 /* Menu button: a dark circle the menu grows out of */
 .burger {
   width: 3.25rem;
@@ -329,10 +320,6 @@ b {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   transition: background-color 0.3s, padding 0.3s, color 0.3s 0.3s;
-}
-
-.header--menu .icon-btn:hover {
-  background: color-mix(in srgb, var(--menu-fg) 12%, transparent);
 }
 
 /*=============== MENU OVERLAY ===============*/
@@ -474,18 +461,6 @@ b {
   grid-row: 1;
   justify-self: end;
   margin-right: -0.1em;
-}
-
-.hero__tag {
-  grid-column: 3;
-  grid-row: 1 / 3;
-  justify-self: start;
-  margin-left: 2.5rem;
-  font-family: var(--font-code);
-  color: var(--accent-ink);
-  font-size: clamp(1.5rem, 2.8vw, 2.75rem);
-  white-space: nowrap;
-  z-index: 3;
 }
 
 .hero__photo {
@@ -727,8 +702,10 @@ b {
   background: #151513;
 }
 
-html.dark .card:nth-child(2) {
-  background: #2a2a26;
+@media (prefers-color-scheme: dark) {
+  .card:nth-child(2) {
+    background: #2a2a26;
+  }
 }
 
 .card:nth-child(3) {
@@ -1079,7 +1056,7 @@ html.dark .card:nth-child(2) {
   }
 
   .hero__word {
-    font-size: clamp(4rem, 22vw, 7rem);
+    font-size: clamp(3.75rem, 20vw, 7rem);
   }
 
   .hero__hello,
@@ -1090,23 +1067,15 @@ html.dark .card:nth-child(2) {
     margin: 0;
   }
 
-  .hero__tag {
-    grid-column: 1;
-    grid-row: auto;
-    justify-self: end;
-    margin: 0.6rem 0 0;
-    font-size: clamp(1.6rem, 8vw, 2.4rem);
-  }
-
   .hero__photo {
     grid-column: 1;
     grid-row: auto;
     justify-self: center;
-    margin: 1.25rem 0 1rem;
+    margin: 1rem 0 0.75rem;
   }
 
   .hero__img {
-    height: min(40svh, 440px);
+    height: min(36svh, 440px);
   }
 
   .hero__squiggle {

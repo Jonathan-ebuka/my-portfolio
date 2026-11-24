@@ -11,15 +11,17 @@ export const metadata = {
   description: "Portfolio of Jonathan Okwudili, front-end developer.",
 };
 
-// Applies the saved theme before the page paints, so dark mode doesn't flash.
-const themeScript = `try{if(localStorage.getItem('selected-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`;
+// Colours the phone's browser bar to match the page in light and dark mode.
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3f2e9" },
+    { media: "(prefers-color-scheme: dark)", color: "#121210" },
+  ],
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   );

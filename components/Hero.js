@@ -19,8 +19,6 @@ export default function Hero() {
       <h1 className="hero__grid">
         <span className="hero__word hero__hello" data-reveal>Hello</span>
 
-        <Typewriter text="{{ world }}" delay={700} speed={110} className="hero__tag" />
-
         <span className="hero__photo" data-reveal>
           {scribbles.map(([side, offset, top, height], i) => (
             <Squiggle
@@ -43,7 +41,7 @@ export default function Hero() {
 
         <Typewriter
           text="A front-end developer with a sprinkle of backend."
-          delay={2200}
+          delay={1200}
           speed={45}
           className="hero__line"
           caret="typewriter__caret--accent"

@@ -6,14 +6,12 @@ import { nav, socials } from "./data";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("home");
   const burgerRef = useRef(null);
   const menuRef = useRef(null);
 
   useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -64,15 +62,6 @@ export default function Header() {
     setOpen((o) => !o);
   };
 
-  const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    try {
-      localStorage.setItem("selected-theme", next ? "dark" : "light");
-    } catch {}
-  };
-
   return (
     <>
       <header className={`header${scrolled ? " header--scrolled" : ""}${open || closing ? " header--menu" : ""}`}>
@@ -81,9 +70,6 @@ export default function Header() {
         </a>
 
         <div className="header__actions">
-          <button className="icon-btn" onClick={toggleTheme} aria-label="Toggle dark theme">
-            <i className={isDark ? "ri-sun-line" : "ri-moon-line"}></i>
-          </button>
           <button
             ref={burgerRef}
             className={`burger${open ? " burger--open" : ""}`}
