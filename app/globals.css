@@ -660,22 +660,10 @@ b {
   margin-top: 3.5rem;
 }
 
-.about__backend li {
+/* the "+" groups (backend, AI) share the accent colour */
+.about__backend li,
+.about__ai li {
   color: var(--accent);
-}
-
-/* AI group: outlined lettering, a size down since the names are longer */
-.about__skills .about__ai li {
-  font-size: clamp(2.25rem, 4.6vw, 4.5rem);
-  line-height: 1.05;
-  margin-bottom: 0.15em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--ink);
-}
-
-.about__skills .about__ai li:hover {
-  color: var(--accent);
-  -webkit-text-stroke-color: var(--accent);
 }
 
 .about__skills li {
@@ -688,6 +676,11 @@ b {
   transition: filter 0.6s var(--ease), opacity 0.6s var(--ease), color 0.3s;
 }
 
+/* a small gap between items, so wrapped names still read as one item */
+.about__skills li + li {
+  margin-top: 0.12em;
+}
+
 .about__skills li.is-sharp {
   filter: none;
   opacity: 1;
@@ -697,7 +690,8 @@ b {
   color: var(--accent);
 }
 
-.about__skills .about__backend li:hover {
+.about__skills .about__backend li:hover,
+.about__skills .about__ai li:hover {
   color: var(--ink);
 }
 
