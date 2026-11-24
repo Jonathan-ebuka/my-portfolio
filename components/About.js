@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { stack } from "./data";
+import { availability, stack } from "./data";
 
 export default function About() {
   const listRef = useRef(null);
@@ -23,12 +23,17 @@ export default function About() {
         <div className="about__sticky">
           <h2 className="about__title" data-reveal>I build websites that actually work</h2>
           <p className="about__text" data-reveal>
-            Passionate about creating <b>web pages</b>. I have no official working experience yet,
-            but I&apos;ve built websites with the help of YouTube, Stack Overflow and other online
-            resources, and I keep learning more about code every day.
+            Front-end builder and computer science student focused on turning visual ideas and UI
+            concepts into responsive, interactive web pages. Experienced in taking designs from
+            layout and typography through to motion and implementation, with a habit of shipping
+            real projects and refining details every day.
+          </p>
+          <p className="status" data-reveal>
+            <span className="status__dot" aria-hidden="true"></span>
+            {availability}
           </p>
           <a href="#contact" className="bracket-link bracket-link--accent" data-reveal>
-            Put me to work
+            Let&apos;s work together
           </a>
         </div>
       </div>
@@ -45,6 +50,13 @@ export default function About() {
           <p className="eyebrow about__eyebrow-gap">+ A sprinkle of backend</p>
           <ul className="about__backend">
             {stack.backend.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+
+          <p className="eyebrow about__eyebrow-gap">+ AI, very proficient</p>
+          <ul className="about__ai">
+            {stack.ai.map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>

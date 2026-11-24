@@ -1,30 +1,30 @@
 import Image from "next/image";
-import project1 from "@/assets/img/project-1.jpg";
-import project2 from "@/assets/img/project-2.png";
-import project3 from "@/assets/img/project-3.png";
+import peniel from "@/assets/img/project-peniel.jpg";
+import fidelity from "@/assets/img/project-fidelity.jpg";
+import arkGroup from "@/assets/img/project-ark-group.jpg";
 
 // To add a project, add an entry here.
 const projects = [
   {
-    image: project1,
-    title: "Blog Website",
-    note: "a blog site for reading and writing posts.",
-    live: "https://blog-site-six-mu.vercel.app/",
-    repo: "https://github.com/Jonathan-ebuka/blog-site",
+    image: peniel,
+    title: "Peniel Makambo",
+    note: "a portfolio site for a fashion stylist based in Ireland.",
+    live: "https://peniel-r21a.vercel.app/",
+    repo: "https://github.com/Jonathan-ebuka/peniel",
   },
   {
-    image: project2,
-    title: "E-commerce Website",
-    note: "an online store with product listings.",
-    live: "https://e-commerce-website-main-nine.vercel.app/",
-    repo: "https://github.com/Jonathan-ebuka/E-Commerce-Website-main",
+    image: fidelity,
+    title: "Fidelity Banking",
+    note: "an online banking app with transfers, bill pay and cards.",
+    live: "https://bankin-gilt.vercel.app/",
+    repo: "https://github.com/Jonathan-ebuka/bankin",
   },
   {
-    image: project3,
-    title: "Data Service Website",
-    note: "a landing page for a data service, built in React.",
-    live: "https://react-data-website-starter.vercel.app/",
-    repo: "https://github.com/Jonathan-ebuka/react-data-website-starter",
+    image: arkGroup,
+    title: "The Ark Group",
+    note: "a website for a strategic advisory and capital firm.",
+    live: "https://the-ark-group.vercel.app/",
+    repo: "https://github.com/Jonathan-ebuka/theArkGroup",
   },
 ];
 

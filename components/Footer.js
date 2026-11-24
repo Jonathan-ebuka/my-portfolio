@@ -9,7 +9,7 @@ export default function Footer() {
           <p className="footer__tagline">Even better in conversation. Say hi on</p>
           <div className="footer__socials">
             {socials.map((s) => (
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a>
+              <a key={s.label} href={s.href} target={s.external ? "_blank" : undefined} rel={s.external ? "noopener noreferrer" : undefined}>{s.label}</a>
             ))}
           </div>
         </div>

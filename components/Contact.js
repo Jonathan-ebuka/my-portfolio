@@ -2,12 +2,12 @@
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { socials } from "./data";
+import { email, socials } from "./data";
 
 // EmailJS IDs (these are public keys, safe to ship to the browser).
-const SERVICE_ID = "service_2ycr41b";
-const TEMPLATE_ID = "template_6kw34al";
-const PUBLIC_KEY = "DGh3yjZTG0jvkbH5d";
+const SERVICE_ID = "service_twgyhdj";
+const TEMPLATE_ID = "template_dw06tn9";
+const PUBLIC_KEY = "xakkyIwV9loKVTOje";
 
 const fields = [
   { name: "user_name", label: "Your name", type: "text", autoComplete: "name" },
@@ -29,7 +29,7 @@ export default function Contact() {
       formRef.current.reset();
       setTimeout(() => setStatus({ text: "", error: false }), 6000);
     } catch {
-      setStatus({ text: "Message not sent (service error). Try LinkedIn instead.", error: true });
+      setStatus({ text: `Message not sent (service error). Email me at ${email} instead.`, error: true });
     } finally {
       setSending(false);
     }
@@ -39,17 +39,17 @@ export default function Contact() {
     <section className="contact section" id="contact">
       <div className="contact__info">
         <h2 className="big-title" data-reveal>
-          Let&apos;s build <br />
-          something<span className="accent">.</span>
+          Let&apos;s work <br />
+          together<span className="accent">.</span>
         </h2>
         <p data-reveal>
-          I will read all emails. Send me any message you want and I&apos;ll get back to you. I
-          need your <b>name</b> and <b>email address</b>, but you won&apos;t receive anything other
-          than your reply.
+          Hiring for a <b>full-time role</b>, or have a <b>freelance project</b> in mind? Send me a
+          message and I&apos;ll get back to you. I only need your name and email address, and
+          you won&apos;t receive anything other than my reply.
         </p>
         <div className="contact__socials" data-reveal>
           {socials.map((s) => (
-            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="bracket-link">
+            <a key={s.label} href={s.href} target={s.external ? "_blank" : undefined} rel={s.external ? "noopener noreferrer" : undefined} className="bracket-link">
               {s.label}
             </a>
           ))}
