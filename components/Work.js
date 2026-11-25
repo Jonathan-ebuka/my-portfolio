@@ -1,7 +1,7 @@
 import Image from "next/image";
 import peniel from "@/assets/img/project-peniel.jpg";
 import fidelity from "@/assets/img/project-fidelity.jpg";
-import arkGroup from "@/assets/img/project-ark-group.jpg";
+import slyko from "@/assets/img/project-slyko.jpg";
 
 // To add a project, add an entry here.
 const projects = [
@@ -20,11 +20,11 @@ const projects = [
     repo: "https://github.com/Jonathan-ebuka/bankin",
   },
   {
-    image: arkGroup,
-    title: "The Ark Group",
-    note: "a website for a strategic advisory and capital firm.",
-    live: "https://the-ark-group.vercel.app/",
-    repo: "https://github.com/Jonathan-ebuka/theArkGroup",
+    image: slyko,
+    title: "Slyko Living",
+    note: "an online furniture store with a shop and cart.",
+    live: "https://slyko-living.vercel.app/",
+    repo: "https://github.com/Jonathan-ebuka/my-bank-app",
   },
 ];
 
