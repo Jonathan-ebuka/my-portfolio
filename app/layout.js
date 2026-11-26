@@ -17,9 +17,16 @@ export const viewport = {
   themeColor: "#f3f2e9",
 };
 
+// Every load or refresh starts at the top: stop the browser restoring the old
+// scroll position, and drop any "#section" left in the address by a link.
+const startAtTop = `try{history.scrollRestoration="manual";if(location.hash)history.replaceState(null,"",location.pathname+location.search);window.scrollTo(0,0)}catch(e){}`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: startAtTop }} />
+      </head>
       <body>{children}</body>
     </html>
   );

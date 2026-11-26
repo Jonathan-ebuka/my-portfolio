@@ -1,11 +1,12 @@
 import { nav, socials } from "./data";
+import LogoLink from "./LogoLink";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__top">
         <div>
-          <a href="#home" className="logo">Jonathan<span>.</span></a>
+          <LogoLink />
           <p className="footer__tagline">Even better in conversation. Say hi on</p>
           <div className="footer__socials">
             {socials.map((s) => (

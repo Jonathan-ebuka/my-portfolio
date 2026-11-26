@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { nav, socials } from "./data";
+import LogoLink from "./LogoLink";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -73,9 +74,7 @@ export default function Header() {
   return (
     <>
       <header className={`header${scrolled ? " header--scrolled" : ""}${open || closing ? " header--menu" : ""}`}>
-        <a href="#home" className="logo" aria-label="Jonathan, back to top" onClick={() => setOpen(false)}>
-          Jonathan<span>.</span>
-        </a>
+        <LogoLink onClick={() => setOpen(false)} />
 
         {/* desktop: links in the bar (the circle menu is for small screens) */}
         <nav className="header__nav" aria-label="Main">
